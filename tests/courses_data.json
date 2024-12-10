@@ -1,4 +1,4 @@
-course_data = {
+ {
   "course1": {
   "name":"Women in Tech", "location": "Manchester"
   },

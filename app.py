@@ -1,9 +1,8 @@
 import json
 from flask import Flask
-from tests import courses_data
 
-course_data = courses_data.course_data
-
+with open('tests/courses_data.json', 'r') as file:
+    courses_data = json.load(file)
 
 app = Flask(__name__)
 
@@ -14,7 +13,7 @@ def index():
 
 @app.route("/courses")
 def courses():
-    return json.dumps(course_data)
+    return courses_data
 
 
 if __name__ == "__main__":
