@@ -1,15 +1,21 @@
+import json
 from flask import Flask
+from tests import courses_data
+
+course_data = courses_data.course_data
+
 
 app = Flask(__name__)
 
-
-@app.route('/')
+@app.route("/")
 def index():
-    return 'hello, World!'
+    return "hello, World!"
 
-@app.route('/courses')
+
+@app.route("/courses")
 def courses():
-  return "<h1>Courses</h1><ul><li>Course 1</li><li>Course 2</li><li>Course 3</li><li>Course 4</li></ul>"
+    return json.dumps(course_data)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(debug=True)

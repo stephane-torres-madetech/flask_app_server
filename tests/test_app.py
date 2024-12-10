@@ -1,3 +1,6 @@
+import json
+
+
 def test_index(client):
     res = client.get('/')
     assert res.status_code == 200
@@ -5,9 +8,14 @@ def test_index(client):
 def test_courses(client):
     res = client.get('/courses')
     assert res.status_code == 200
-    assert b"<h1>Courses</h1>" in res.data
-    assert b"<li>Course 1</li>" in res.data
-    assert b"<li>Course 2</li>" in res.data
-    assert b"<li>Course 3</li>" in res.data
-    assert b"<li>Course 4</li>" in res.data
+    result = json.loads(res.data) 
+    print(result, "res")
+    assert result["course1"]["name"] == "Women in Tech"
+    assert result["course1"]["location"] == "Manchester"
+    assert result["course2"]["name"] == "Cyber Security Track Day"
+    assert result["course2"]["location"] == "Manchester"
+
+   
  
+ 
+   
