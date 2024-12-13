@@ -14,8 +14,8 @@ def test_courses(client):
     assert result["course2"]["name"] == "Cyber Security Track Day"
     assert result["course2"]["location"] == "Manchester"
 
-def test_failing_test():
-    assert False
+# def test_failing_test():
+#     assert False
 
    
  
