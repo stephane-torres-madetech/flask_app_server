@@ -1,0 +1,19 @@
+# Things I want this workflow to do:
+  # run on dispatch
+  # do i have any inputs?
+  # checkout
+  # create a python venv
+  # activate
+  # download dependencies
+  # run tests and exit on failure
+  # build the app locally and exit on failure
+  # create a docker image of the app for co-pilot
+    # may include build pipeline like from hard2heat
+  # use aws co-pilot to deploy app, provisions everything for use, nice and easy to use hopefully
+    # need to know aws role to assume
+    # make sure github has permissions to access aws resources
+    # use image that will hopefully have been created above
+    # exit on failure
+    # provide url on success
+
+name: "Deploy app to AWS sandbox"

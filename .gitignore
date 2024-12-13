@@ -3,3 +3,5 @@ pyvenv.cfg
 lib
 bin
 include
+__pycache__/
+tests/__pycache__   
