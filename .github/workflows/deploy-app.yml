@@ -55,9 +55,9 @@ jobs:
           pytest tests
           echo all test pass
 
-      - name: Build app locally
-        run: |
-          python app.py
-          echo app running locally
-          exit()
+      # - name: Build app locally
+      #   run: |
+      #     python app.py
+      #     echo app running locally
+      #     exit()
 
