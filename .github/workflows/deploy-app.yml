@@ -39,7 +39,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        ref: ${{ inputs.build_branch }}
+        # ref: ${{ inputs.build_branch }}
       
       - name: Set up Python
         uses: actions/setup-python@v5
