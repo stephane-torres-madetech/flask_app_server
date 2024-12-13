@@ -19,7 +19,7 @@
 name: "Deploy app to AWS sandbox"
 
 on: 
-  workflow_disptach:
+  workflow_dispatch:
     inputs:
       build_branch:
         description: "Branch to deploy"
