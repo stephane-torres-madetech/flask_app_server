@@ -17,3 +17,41 @@
     # provide url on success
 
 name: "Deploy app to AWS sandbox"
+
+on: 
+  workflow_disptach:
+    inputs:
+      build_branch:
+        description: "Branch to deploy"
+        required: true
+        type: "string"
+        default: "main"
+
+permissions:
+  pull-requests: write
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+
+jobs:
+  test-and-deploy-app:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        ref: ${{ inputs.build_branch }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: '3.12'
+          cache: 'pip'
+        run: |
+          pip install -r requirements.txt
+          echo installed requirements successfully
+
+      - name: Test python files
+        run: |
+          pytest tests
+          echo all test pass
+
