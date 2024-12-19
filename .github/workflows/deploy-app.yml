@@ -55,11 +55,8 @@ jobs:
           pytest tests
           echo all test pass
 
-      # - name: Build app locally
-      #   run: |
-      #     python app.py
-      #     echo app running locally
-      #     exit()
-
-      #- name: Build Docker image
+      - name: Build Docker image
+        run: |
+         docker build -t flask-app-image -f Dockerfile . 
+         docker history flask-app-image   
 
