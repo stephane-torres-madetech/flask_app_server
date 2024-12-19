@@ -61,5 +61,5 @@ jobs:
       #     echo app running locally
       #     exit()
 
-      # - name: Build Docker image
+      #- name: Build Docker image
 
