@@ -79,7 +79,7 @@ jobs:
           copilot --version
 
       - name: Initialise AWS copilot
-      - run: |
+        run: |
           copilot init
 
 #      - name: Deploy app with AWS Copilot
