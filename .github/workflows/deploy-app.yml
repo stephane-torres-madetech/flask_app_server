@@ -78,6 +78,11 @@ jobs:
       - run: |
           copilot --version
 
+      - name: Initialise AWS copilot
+        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
+        with:
+          command: init
+
 #      - name: Deploy app with AWS Copilot
 #        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
 #        with:
