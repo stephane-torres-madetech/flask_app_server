@@ -58,5 +58,32 @@ jobs:
       - name: Build Docker image
         run: |
          docker build -t flask-app-image -f Dockerfile . 
-         docker history flask-app-image   
+         docker history flask-app-image  
+         echo Successfully built docker image
+         echo moving onto the next step 
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_GITHUB_DEPLOY_ROLE }}
+          aws-region: eu-west-2
+          mask-aws-account-id: true
+        run: |
+          echo Successfully assumed AWS role
+
+      - name: Install AWS copilot
+        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
+        with:
+          command: install
+        run: |
+          copilot --version
+
+#      - name: Deploy app with AWS Copilot
+#        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
+#        with:
+#          command: deploy
+#          type: 'Load Balanced Web Service'
+#          app: flask-api
+#          env: dev
+#          force: false # optional
 
