@@ -63,7 +63,7 @@ jobs:
          echo moving onto the next step 
       
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_GITHUB_DEPLOY_ROLE }}
           aws-region: eu-west-2
@@ -80,7 +80,10 @@ jobs:
 
       - name: Initialise AWS copilot
         run: |
-          copilot init
+          copilot init --app steph-demo \
+          --name app \
+          --type 'Load Balanced Web Service'\
+          --dockerfile './Dockerfile 
 
 #      - name: Deploy app with AWS Copilot
 #        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
