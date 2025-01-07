@@ -68,14 +68,14 @@ jobs:
           role-to-assume: ${{ secrets.AWS_GITHUB_DEPLOY_ROLE }}
           aws-region: eu-west-2
           mask-aws-account-id: true
-        run: |
+      - run: |
           echo Successfully assumed AWS role
 
       - name: Install AWS copilot
         uses: ksivamuthu/aws-copilot-github-action@v0.0.8
         with:
           command: install
-        run: |
+      - run: |
           copilot --version
 
 #      - name: Deploy app with AWS Copilot
