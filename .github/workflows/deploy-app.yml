@@ -83,8 +83,8 @@ jobs:
           copilot init --app steph-demo \
           --name app \
           --type "Load Balanced Web Service" \
-          --dockerfile './Dockerfile' \ 
           --deploy \
+          --dockerfile './Dockerfile' \ 
 #      - name: Deploy app with AWS Copilot
 #        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
 #        with:
