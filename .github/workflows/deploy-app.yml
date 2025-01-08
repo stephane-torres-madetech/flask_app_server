@@ -26,6 +26,11 @@ on:
         required: true
         type: "string"
         default: "main"
+      app_name:
+        description: "What would you like to call you app"
+        required: true
+        type: "string"
+
 
 permissions:
   pull-requests: write
@@ -80,18 +85,11 @@ jobs:
 
       - name: Initialise AWS copilot
         run: |
-          copilot init --app steph-demo \
+          copilot init --app ${{ inputs.app_name }} \
           --name app \
           --type "Load Balanced Web Service" \
           --deploy \
           --env test \
           --dockerfile './Dockerfile' \ 
-#      - name: Deploy app with AWS Copilot
-#        uses: ksivamuthu/aws-copilot-github-action@v0.0.8
-#        with:
-#          command: deploy
-#          type: 'Load Balanced Web Service'
-#          app: flask-api
-#          env: dev
-#          force: false # optional
+
 
