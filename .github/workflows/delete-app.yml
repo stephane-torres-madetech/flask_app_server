@@ -16,7 +16,7 @@
     # exit on failure
     # provide url on success
 
-name: "Deploy app to AWS sandbox"
+name: "Delete copilot app"
 
 on:
   workflow_dispatch:
